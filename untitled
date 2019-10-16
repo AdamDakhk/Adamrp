@@ -1,0 +1,10 @@
+Program Ananas;
+function foo (x:integer):integer;
+begin
+   .writeln(x);
+    if x<>0 then
+       foo(x-1);
+end;
+begin 
+   foo(3)
+   end

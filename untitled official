@@ -1,0 +1,6 @@
+Program Ananas;
+   var a:integer;
+begin
+var b := 3;
+   writeln('hw');
+end
