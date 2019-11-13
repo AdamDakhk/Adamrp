@@ -53,6 +53,20 @@ app.get('/secret',
 				res.send(`Very secret page`)
 			}
 			);
+app.get('/newuser', 
+		function(reg, res){
+			let l = reg.query.login;
+			let p = reg.query.pass;
+			let u = {
+				login: l,
+				pass: p
+			};
+		users.push(u);
+		SaveObject('users.json', users);
+		res.send("OK");
+		}
+		);
+
 app.get('/register', 
 		function(reg, res){
 				res.send(`
@@ -62,7 +76,7 @@ app.get('/register',
 						let npswd=document.getElementById("nop").value
 						let npswd1=document.getElementById("nop1").value
 						if(npswd == npswd1){
-							window.location='/s';
+							window.location='/newuser?login='+nname+'&pass='+npswd;
 						} else
 							alert("Passwords are not the same!")
 					}
