@@ -45,6 +45,7 @@ app.get('/', function (req, res) {
 			<br>
 			<button onclick="login()">Login</button>
 			<br>
+			<a href="/register">Register</a>
 			`);
 });
 app.get('/secret',
@@ -52,6 +53,34 @@ app.get('/secret',
 				res.send(`Very secret page`)
 			}
 			);
+app.get('/register', 
+		function(reg, res){
+				res.send(`
+					<script>
+					function registration(){
+						let nname=document.getElementById("nou").value
+						let npswd=document.getElementById("nop").value
+						let npswd1=document.getElementById("nop1").value
+						if(npswd == npswd1){
+							window.location='/s';
+						} else
+							alert("Passwords are not the same!")
+					}
+					</script>
+					New user:
+					<input type="text" id="nou">
+					<br>
+					New password:
+					<input type="password" id="nop">
+					<br>
+					Repeat password:
+					<input type="password" id="nop1">
+					<br>
+					<button onclick="registration()">Create account</button>
+					<br>
+					`);
+		}
+		)
 
 // Для получения переменных из HTML формы
 // let login = req.body.login,
